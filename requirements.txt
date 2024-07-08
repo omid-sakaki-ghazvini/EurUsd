@@ -4,4 +4,4 @@ matplotlib
 keras
 scikit-learn
 numpy
-tensorflow
+ tensorflow==2.15.0
