@@ -16,8 +16,14 @@ with st.sidebar:
     st.write("-------------------------------------")
     search_date = st.radio('select time?',["D","H","30M"],horizontal=True)
     if search_date == "D":
-        df = yf.download(tickers = 'EURUSD=X' ,start="2023-02-01" ,end=end)
+        df = yf.download(tickers='EURUSD=X' ,start=start ,end=end)
         model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)
+    elif search_date == "H":
+        df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end , interval="1h")
+        model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)
+    elif search_date == "30M":
+        df = yf.download(tickers = 'EURUSD=X' ,start=start,end=end , interval="30D")
+        model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)    
     st.write("-------------------------------------")    
     
 ####### load data ########
