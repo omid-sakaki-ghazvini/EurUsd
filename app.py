@@ -18,13 +18,13 @@ with st.sidebar:
     if search_date == "D":
         df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end)
         df = yf.download(tickers='EURUSD=X', start=start, end=end)
-        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
+        model = tf.keras.models.load_model("final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     elif search_date == "H":
         df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end , interval="2h")
-        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
+        model = tf.keras.models.load_model("final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     elif search_date == "30M":
         df = yf.download(tickers = 'EURUSD=X' ,start=start,end=end , interval="1h")
-        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
+        model = tf.keras.models.load_model("final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     st.write("-------------------------------------")    
     
 ####### load data ########
