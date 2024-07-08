@@ -9,7 +9,7 @@ import numpy as np
 import tensorflow as tf
 
 ####### Select type ########
-start = "2024-02-01"
+start = "2023-02-01"
 end = datetime.datetime.now()
 with st.sidebar:
     select_type = st.selectbox('select type?', ['EUR USD'])
