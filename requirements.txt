@@ -6,3 +6,4 @@ scikit-learn
 numpy
 tensorflow==2.15.0
 datetime
+setuptools
