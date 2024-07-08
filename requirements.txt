@@ -1,7 +1,7 @@
 yfinance
 pandas
 matplotlib
-keras==2.4.3
+keras==2.15.0
 scikit-learn
 numpy
-tensorflow==2.4.3
+tensorflow==2.15.0
