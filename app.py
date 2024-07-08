@@ -9,21 +9,22 @@ import numpy as np
 import tensorflow as tf
 
 ####### Select type ########
-start = "2023-02-01"
+start = "2024-02-01"
 end = datetime.datetime.now()
 with st.sidebar:
     select_type = st.selectbox('select type?', ['EUR USD'])
     st.write("-------------------------------------")
     search_date = st.radio('select time?',["D","H","30M"],horizontal=True)
     if search_date == "D":
-        df = yf.download(tickers='EURUSD=X' ,start=start ,end=end)
-        model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)
+        df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end)
+        df = yf.download(tickers='EURUSD=X', start=start, end=end)
+        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     elif search_date == "H":
-        df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end , interval="1h")
-        model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)
+        df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end , interval="2h")
+        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     elif search_date == "30M":
-        df = yf.download(tickers = 'EURUSD=X' ,start=start,end=end , interval="30D")
-        model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)    
+        df = yf.download(tickers = 'EURUSD=X' ,start=start,end=end , interval="1h")
+        model = tf.keras.models.load_model("/content/gdrive/MyDrive/kaggle/data_treade3/data_treader3/final2_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)
     st.write("-------------------------------------")    
     
 ####### load data ########
@@ -124,8 +125,7 @@ plt.axvline(x = min(PREDICTIONS_FUTURE.index), color='green', linewidth=2, lines
 plt.grid(which='major', color='#cccccc', alpha=0.5)
 
 plt.legend(shadow=True)
-plt.title('Predcitions and Acutal EUR USD values', family='Arial', fontsize=12)
-plt.xlabel('Timeline', family='Arial', fontsize=10)
-plt.ylabel('Stock Price Value', family='Arial', fontsize=10)
-
+plt.title('Predcitions and Acutal EUR USD values', fontsize=12)
+plt.xlabel('Timeline', fontsize=10)
+plt.ylabel('Stock Price Value', fontsize=10)
 st.pyplot(fig)
