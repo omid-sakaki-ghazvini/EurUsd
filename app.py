@@ -17,7 +17,7 @@ with st.sidebar:
     search_date = st.radio('select time?',["D","H","30M"],horizontal=True)
     df = yf.download(tickers = 'EURUSD=X' ,start=start ,end=end)
     df = yf.download(tickers='EURUSD=X', start=start, end=end)
-    model = tf.keras.models.load_model("final1_model_EUR_USD.h5" , custom_objects=None, compile=True, safe_mode=True)  
+    model = tf.keras.models.load_model("final2_model_EUR_USD(1).h5" , custom_objects=None, compile=True, safe_mode=True)  
     
     st.write("-------------------------------------")    
     
